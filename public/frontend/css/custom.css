@@ -88,6 +88,7 @@ a {
 .header {
     text-align: center;
     color: #000;
+    margin-top: 30px;
 }
 
 .portlet.box.green {
@@ -171,4 +172,12 @@ strong.name {
 .cmnt-submit {
     text-align: right;
     margin-top: 10px !important;
+}
+.info-btn {
+    color: #fff !important;
+}
+.table-bg {
+    background: #d5d5d5;
+    padding: 25px;
+    border-radius: 5px;
 }

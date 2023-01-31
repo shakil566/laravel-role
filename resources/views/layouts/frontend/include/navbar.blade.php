@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">Test Project</a>
+        <a class="navbar-brand" href="{{ url('/') }}">@lang('english.TEST_PROJECT')</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,17 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">@lang('english.HOME')</a>
                 </li>
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link" href="{{ route('login') }}">@lang('english.LOGIN')</a>
                         </li>
                     @endif
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registration</a>
+                            <a class="nav-link" href="{{ route('register') }}">@lang('english.REGISTRATION')</a>
                         </li>
                     @endif
                 @else

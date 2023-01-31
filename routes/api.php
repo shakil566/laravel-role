@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/userRole', [App\Http\Controllers\Api\UserRoleApiController::class, 'index']);
-Route::get('/userRole/show/{id}', [App\Http\Controllers\Api\UserRoleApiController::class, 'show']);
+Route::get('/userRole/show/{id}/{roleId}', [App\Http\Controllers\Api\UserRoleApiController::class, 'info']);

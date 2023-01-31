@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Test Project</title>
+    <title>@lang('english.TEST_PROJECT')</title>
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"

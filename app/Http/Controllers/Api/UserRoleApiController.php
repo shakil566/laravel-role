@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -16,10 +18,13 @@ class UserRoleApiController extends Controller
 {
     public function index(Request $request)
     {
+        $targetArr = UserRole::with(['user', 'role'])->get();
+        return response()->json([
+            'status' => 302,
+            'message' => 'User info',
+            'data' => $targetArr,
+        ], 302);
 
-        $targetArr = User::all();
-
-        return response($targetArr);
     }
 
     public function create(Request $request)
@@ -41,8 +46,8 @@ class UserRoleApiController extends Controller
             ], 400);
         } else {
 
-            $target = new Role;
-            $target->role = $request->role;
+            $target = new UserRole;
+            $target->role_id = $request->role_id;
             $target->user_id = Auth::id();
 
             // return $target;
@@ -55,12 +60,12 @@ class UserRoleApiController extends Controller
         }
     }
 
-    public function show($id)
+    public function info($id,$roleId)
     {
 
-        $data = User::orderBy('id', 'desc');
-        if ($data) {
-            return response($data);
+        $targetArr = UserRole::with(['user', 'role'])->where('user_role.user_id', $id)->where('user_role.role_id', $roleId)->get();
+        if (!empty($targetArr)) {
+            return response($targetArr);
         } else {
             return response()->json([
                 'status' => 404,
@@ -71,13 +76,11 @@ class UserRoleApiController extends Controller
 
     public function edit(Request $request, $id)
     {
-
     }
 
 
     public function update(Request $request, $id)
     {
-
     }
 
     public function destroy(Request $request, $id)

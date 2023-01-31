@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[FrontendController::class,'index']);
-// Route::get('/role/{id}/{slug}',[FrontendController::class,'roledetails']);
-// Route::post('/role',[FrontendController::class,'roleComment']);
 
 Auth::routes();
 

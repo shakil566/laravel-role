@@ -68,7 +68,6 @@
                                         <th>Sl No.</th>
                                         <th>Name</th>
                                         <th class="text-center">Email</th>
-                                        <th class="text-center">Role</th>
                                         <th class="td-actions text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -79,11 +78,10 @@
                                         $sl = 0;
                                         ?>
                                         @foreach ($targetArr as $target)
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td>{{ ++$sl }}</td>
                                                 <td>{{ $target->name ?? '' }}</td>
                                                 <td>{{ $target->email ?? '' }}</td>
-                                                <td>{{ $target->role->title ?? '' }}</td>
 
                                                 <td class="td-actions text-center vcenter">
                                                     {{-- <div class="width-inherit">

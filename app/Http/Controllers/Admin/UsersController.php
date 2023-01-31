@@ -21,11 +21,8 @@ class UsersController extends Controller
     public function index(Request $request)
     {
 
-        // $posts = User::find(1)->role;
-        // $posts = User::with('role')->get();
-        // return $posts;
         $qpArr = $request->all();
-        $targetArr = User::with('role')->orderBy('id', 'desc');
+        $targetArr = User::orderBy('id', 'desc');
         $titleArr = User::select('name')->orderBy('id', 'desc')->get();
 
         //begin filtering
