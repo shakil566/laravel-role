@@ -18,4 +18,4 @@
       </div>
     </div>
   </footer>
-<?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/layouts/include/footer.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\xampp_8\htdocs\test\resources\views/layouts/include/footer.blade.php ENDPATH**/ ?>

@@ -1,4 +1,5 @@
 
+
 <div class="container">
     <h1 class="header margin-bottom-10"><?php echo app('translator')->get('english.USER_DETAILS'); ?></h1>
     <button class="btn btn-sm btn-success mb-5">
@@ -17,23 +18,31 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
+                    
                     <?php if(!empty($targetArr)): ?>
                         <?php
                         $sl = 0;
                         ?>
 
                         
+                        <?php
+                        // print((new \App\Helpers\Helper)->stringToArrayToName('1,2', $roleArr));
+                        // exit;
+                        ?>
                         <?php $__currentLoopData = $targetArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $target): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php
+                            $roleText = (new \App\Helpers\Helper())->stringToArrayToName($target->role_id, $roleArr);
+                            ?>
                             <tr class="text-center">
                                 <td><?php echo e(++$sl); ?></td>
                                 <td><?php echo e($target->user->name ?? ''); ?></td>
                                 <td><?php echo e($target->user->email ?? ''); ?></td>
-                                <td><?php echo e($target->role->title ?? ''); ?></td>
+                                <td><?php echo e($roleText ?? ''); ?></td>
                                 <td>
                                     <button class="btn btn-sm btn-success">
                                         <a class="info-btn"
-                                            href="<?php echo e(URL::to('api/userRole/show') . '/' . $target->user->id . '/' . $target->role->id); ?>"
+                                            href="<?php echo e(URL::to('api/userRole/show') . '/' . $target->user->id); ?>"
                                             target="_blank"><?php echo app('translator')->get('english.INFO'); ?></a>
                                     </button>
                                 </td>
@@ -49,4 +58,4 @@
         </div>
     </div>
 </div>
-<?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/layouts/frontend/include/userDetails.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\xampp_8\htdocs\test\resources\views/layouts/frontend/include/userDetails.blade.php ENDPATH**/ ?>

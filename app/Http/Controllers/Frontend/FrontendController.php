@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use App\Models\UserRole;
 use Illuminate\Support\Facades\Redirect;
@@ -15,11 +17,12 @@ class FrontendController extends Controller
 {
     public function index(){
 
+        $roleArr = Role::orderBy('title', 'asc')->pluck('title', 'id')->toArray();
         $targetArr = UserRole::with(['user','role'])->get();
         // echo '<pre>';
-        // print($targetArr);
+        // print(Helper::stringToArrayToName('1,2', $roleArr));
         // exit;
 
-        return view('frontend.index')->with(compact('targetArr'));
+        return view('frontend.index')->with(compact('targetArr','roleArr'));
     }
 }

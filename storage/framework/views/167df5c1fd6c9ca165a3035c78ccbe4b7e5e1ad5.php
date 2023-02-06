@@ -46,4 +46,4 @@
 </body>
 
 </html>
-<?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/layouts/frontend/include/master.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\xampp_8\htdocs\test\resources\views/layouts/frontend/include/master.blade.php ENDPATH**/ ?>

@@ -48,4 +48,4 @@
         </div>
     </div>
 </nav>
-<?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/layouts/frontend/include/navbar.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\xampp_8\htdocs\test\resources\views/layouts/frontend/include/navbar.blade.php ENDPATH**/ ?>

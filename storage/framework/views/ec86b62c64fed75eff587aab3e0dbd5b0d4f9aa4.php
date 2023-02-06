@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title'); ?>
     <?php echo $__env->yieldContent('Welcome to Test - Project'); ?>
 <?php $__env->stopSection(); ?>
@@ -11,4 +12,4 @@
     
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.frontend.include.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/frontend/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.frontend.include.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp_8\htdocs\test\resources\views/frontend/index.blade.php ENDPATH**/ ?>

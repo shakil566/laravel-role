@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container margin-top-10 login">
         <div class="row justify-content-center">
@@ -92,4 +94,4 @@ unset($__errorArgs, $__bag); ?>
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layouts.frontend.include.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.frontend.include.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp_8\htdocs\test\resources\views/auth/login.blade.php ENDPATH**/ ?>

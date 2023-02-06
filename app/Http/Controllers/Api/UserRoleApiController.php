@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
@@ -24,7 +25,6 @@ class UserRoleApiController extends Controller
             'message' => 'User info',
             'data' => $targetArr,
         ], 302);
-
     }
 
     public function create(Request $request)
@@ -60,12 +60,18 @@ class UserRoleApiController extends Controller
         }
     }
 
-    public function info($id,$roleId)
+    public function info($id)
     {
-
-        $targetArr = UserRole::with(['user', 'role'])->where('user_role.user_id', $id)->where('user_role.role_id', $roleId)->get();
+        $roleArr = Role::orderBy('title', 'asc')->pluck('title', 'id')->toArray();
+        $targetArr = UserRole::with(['user', 'role'])->where('user_role.user_id', $id)->get();
         if (!empty($targetArr)) {
-            return response($targetArr);
+            $viewArr = [];
+            foreach ($targetArr as $data) {
+                $viewArr['info']['name'] = $data->user->name ?? '';
+                $viewArr['info']['email'] = $data->user->email ?? '';
+                $viewArr['role'] = (new \App\Helpers\Helper())->stringToArrayToName($data->role_id, $roleArr) ?? '';
+            }
+            return response($viewArr);
         } else {
             return response()->json([
                 'status' => 404,

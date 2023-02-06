@@ -7,13 +7,9 @@
                     <div class="card-header card-header-primary">
                         <div class="row">
                             <div class="col-md-8">
-                                <h4 class="card-title mt-0">Role List
+                                <h4 class="card-title mt-0">User List
 
-                                    <a class="btn btn-default btn-sm create-new" href="<?php echo e(URL::to('/admin/role/create')); ?>">
-                                        Add
-                                        New
-                                        <i class="fa fa-plus create-new"></i>
-                                    </a>
+                                    
                                 </h4>
                             </div>
                             <div class="col-md-4">
@@ -23,7 +19,7 @@
 
                     </div>
                     <!-- Begin Filter-->
-                    <?php echo Form::open(['group' => 'form', 'url' => '/admin/role/filter', 'class' => 'form-horizontal']); ?>
+                    <?php echo Form::open(['group' => 'form', 'url' => '/admin/user/filter', 'class' => 'form-horizontal']); ?>
 
                     <div class="row margin-top-10">
 
@@ -33,16 +29,16 @@
                                 <div class="col-md-8">
                                     <?php echo Form::text('search', Request::get('search'), [
                                         'class' => 'form-control tooltips',
-                                        'title' => 'Title',
-                                        'placeholder' => 'Title',
+                                        'title' => 'Name',
+                                        'placeholder' => 'name',
                                         'list' => 'search',
                                         'autocomplete' => 'off',
                                     ]); ?>
 
                                     <datalist id="search">
                                         <?php if(!empty($titleArr)): ?>
-                                            <?php $__currentLoopData = $titleArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $titles): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <option value="<?php echo e($titles->title); ?>"></option>
+                                            <?php $__currentLoopData = $titleArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($data->name); ?>"></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php endif; ?>
                                     </datalist>
@@ -68,7 +64,8 @@
                                 <thead>
                                     <tr class="center">
                                         <th>Sl No.</th>
-                                        <th>Title</th>
+                                        <th>Name</th>
+                                        <th class="text-center">Email</th>
                                         <th class="td-actions text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -79,36 +76,19 @@
                                         $sl = 0;
                                         ?>
                                         <?php $__currentLoopData = $targetArr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $target): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td><?php echo e(++$sl); ?></td>
-                                                <td><?php echo e($target->title ?? ''); ?></td>
+                                                <td><?php echo e($target->name ?? ''); ?></td>
+                                                <td><?php echo e($target->email ?? ''); ?></td>
 
                                                 <td class="td-actions text-center vcenter">
-                                                    <div class="width-inherit">
-                                                        <a class="btn btn-xs btn-primary tooltips" title="Edit"
-                                                            href="<?php echo e(URL::to('/admin/role/' . $target->id . '/edit')); ?>">
-                                                            <i class="fa fa-edit"></i>
-                                                        </a>
-
-                                                        <?php echo e(Form::open(['url' => '/admin/role/' . $target->id, 'class' => 'delete-form-inline','id' => 'delete'])); ?>
-
-                                                        <?php echo e(Form::hidden('_method', 'DELETE')); ?>
-
-                                                        <button class="btn btn-xs btn-danger delete tooltips" title="Delete"
-                                                            type="submit" data-placement="top" data-rel="tooltip"
-                                                            data-original-title="Delete">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                        <?php echo e(Form::close()); ?>
-
-
-                                                    </div>
+                                                    
                                                 </td>
                                             </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php else: ?>
                                         <tr>
-                                            <td colspan="8">No Blog Found</td>
+                                            <td colspan="8">No User Found</td>
                                         </tr>
                                     <?php endif; ?>
                                 </tbody>
@@ -151,4 +131,4 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/admin/role/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp_8\htdocs\test\resources\views/admin/user/index.blade.php ENDPATH**/ ?>

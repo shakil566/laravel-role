@@ -16,4 +16,4 @@ if (!empty($ses_msg)) {
         <p><i class="fa fa-bell-o fa-fw"></i> <?php echo Session::get('error'); ?></p>
     </div>
 <?php
-}// ?><?php /**PATH F:\xampp\htdocs\LaravelRole\resources\views/layouts/include/flash.blade.php ENDPATH**/ ?>
+}// ?><?php /**PATH E:\xampp_8\htdocs\test\resources\views/layouts/include/flash.blade.php ENDPATH**/ ?>

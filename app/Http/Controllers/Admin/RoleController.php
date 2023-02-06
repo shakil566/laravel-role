@@ -58,9 +58,6 @@ class RoleController extends Controller
 
         $target = new Role;
         $target->title = $request->title;
-        $target->slug = $request->slug;
-        $target->description = $request->description;
-        $target->user_id = Auth::id();
 
         // return $target;
 
@@ -108,8 +105,6 @@ class RoleController extends Controller
         }
 
         $target->title = $request->title;
-        $target->slug = $request->slug;
-        $target->description = $request->description;
         // return $target;
         if ($target->save()) {
             Session::flash('success', 'Updated Successfully');
